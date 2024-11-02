@@ -1,7 +1,7 @@
 ## QSS Editor
-A tool to edit and preview Qt style sheets.
+A tool to edit and preview Qt style sheets (.qss).
 
-Original by **Niklas Henning** - [Github profile](https://github.com/niklas-henning)
+Original by [**Niklas Henning**](https://github.com/niklas-henning)
 
 Being adapted for use with Flex GUI / LinuxCNC.  Progress is only just beginning; check back later.
 
@@ -50,7 +50,7 @@ Being adapted for use with Flex GUI / LinuxCNC.  Progress is only just beginning
 * QTreeWidget
 * QWidget
 
-## Original Samples
+## Original Examples
 ![QSS Editor++ 1](https://user-images.githubusercontent.com/52217345/62200731-4c622200-b386-11e9-8f2e-708ef66e26c8.png)
 ![QSS Editor++ 2](https://user-images.githubusercontent.com/52217345/62200784-6865c380-b386-11e9-8605-90c1f96f395d.png)
 
@@ -64,7 +64,7 @@ One of the main goals to tackle first is allowing opening of custom .ui files, s
 
 ## Download:
 
-It is hoped that this be included in an upcoming Flex GUI release.  Downloads will not be provided here.
+It is hoped that this be included in an upcoming Flex GUI release (then development will be handled there.)  Downloads will not be provided here.
 
 
 

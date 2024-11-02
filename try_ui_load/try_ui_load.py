@@ -3,16 +3,39 @@ from PyQt5 import QtWidgets, uic	# adapted to Qt5
 from functools import partial
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
-# this main.ui has the buttons and stackedWidget
+# the main.ui has the buttons and stackedWidget
 Form, Base = uic.loadUiType(os.path.join(current_dir, "ui/main.ui"))
 
 class MainWidget(Base, Form):
 	def __init__(self, parent=None):
 		super(self.__class__, self).__init__(parent)
 		self.setupUi(self)
-		buttons = (self.homebutton, self.statusbutton, self.fanbutton, self.energybutton)
+		# try to intercept file open buttons
+		self.openqssbutton.clicked.connect(self.openqss)
+		self.openqssbutton.setDisabled(True)
+		self.openuibutton.clicked.connect(self.openui)
+		buttons = (self.homebutton, self.statusbutton, self.fanbutton, 
+			self.energybutton)
 		for i, button in enumerate(buttons):
 			button.clicked.connect(partial(self.stackedWidget.setCurrentIndex, i))
+	
+	def openqss(self):
+		print("Open QSS button pressed!")
+		self.file_name, _ = QtWidgets.QFileDialog.getOpenFileName(self, 
+            "", "", "Qt5 QSS File (*.qss)" )
+	
+	def openui(self):
+		print("Open UI button pressed!")
+		self.file_name, _ = QtWidgets.QFileDialog.getOpenFileName(self, 
+            "", "", "Qt5 UI File (*.ui)" )
+		# have valid file_name here
+		pass
+		# crashes here...
+		#Form, Base = uic.loadUiType(self.file_name)
+		#self.stackedWidget.addWidget(uic.loadUiType(self.file_name))
+		#self.stackedWidget.addWidget(self.file_name)
+		self.stackedWidget.setCurrentIndex(4)
+
 
 if __name__ == '__main__':
 	import sys

@@ -3,7 +3,7 @@
     Fixed issue with QRect (Python QRect change from Qt4 to Qt5)
     Fixed issue with icons not showing (Python path change)
     Del'd some vars which were never used (will look into optimizing later)
-    Created try_ui_load to see how .ui file can be loaded into a frame
+    Created try_ui_load to see how .ui file can be loaded into a stackedWidget
     General tweaks and updates for Flex GUI
 
 2019/08/15

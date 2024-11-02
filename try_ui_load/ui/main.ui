@@ -58,6 +58,20 @@
         </property>
        </spacer>
       </item>
+      <item>
+       <widget class="QPushButton" name="openqssbutton">
+        <property name="text">
+         <string>Open QSS</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="openuibutton">
+        <property name="text">
+         <string>Open UI</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
     <item>
@@ -76,7 +90,7 @@
      <x>0</x>
      <y>0</y>
      <width>559</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -111,4 +125,3 @@
  <resources/>
  <connections/>
 </ui>
-

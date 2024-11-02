@@ -1,2 +1,4 @@
-./__pycache__
-./try_ui_load/pages/__pycache__
+__pycache__
+try_ui_load/test.qss
+try_ui_load/test.ui
+try_ui_load/pages/__pycache__
