@@ -1,5 +1,10 @@
-## QSS Editor++
-A tool to edit and preview Qt style sheets
+## QSS Editor
+A tool to edit and preview Qt style sheets.
+
+Original by **Niklas Henning** - [Github profile](https://github.com/niklas-henning)
+
+Being adapted for use with Flex GUI / LinuxCNC.  Progress is only just beginning; check back later.
+
 
 
 ## Features
@@ -7,10 +12,10 @@ A tool to edit and preview Qt style sheets
 #### Version 1.0.2
 
 * Preview 30+ widgets
-* Various states (enabled, disabled etc.)
+* Various states (enabled, disabled, etc.)
 * Find and Replace tool 
 * Syntax Highlighting
-* Cross platform (Windows, Linux, Mac OS)
+* Cross platform Python (Windows, Linux, MacOS)
 
 ## Supported widgets
 * QCalendarWidget
@@ -45,32 +50,33 @@ A tool to edit and preview Qt style sheets
 * QTreeWidget
 * QWidget
 
-## Samples
+## Original Samples
 ![QSS Editor++ 1](https://user-images.githubusercontent.com/52217345/62200731-4c622200-b386-11e9-8f2e-708ef66e26c8.png)
 ![QSS Editor++ 2](https://user-images.githubusercontent.com/52217345/62200784-6865c380-b386-11e9-8605-90c1f96f395d.png)
 
 Style sheet used in the second screenshot: [QtDark](https://github.com/EClaesson/QTDark/blob/master/QTDark.stylesheet)
 
 ## How to use
-* Either open a QSS file to edit and preview or start writing one from scratch in the editor
-* To make changes visible either press 'Ctrl + Enter' or click on 'Apply', located in the 'View' section of the menu bar
+* Either open a QSS file to edit and preview or start writing one from scratch in the editor.
+* To make changes visible either press 'Ctrl + Enter' or click on 'Apply', located in the 'View' section of the menu bar.
+
+One of the main goals to tackle first is allowing opening of custom .ui files, so that the user can open their Flex GUI .ui directly and work on that (instead of boilerplate.)
 
 ## Download:
-#### v1.0.2
 
-[Download QSS Editor++](https://mega.nz/#!TKAQ0CBC!Uvo1_TH_zUAUAKSH5A4dlHwGQBCtg5RF15C3No4GUhA)
-
+It is hoped that this be included in an upcoming Flex GUI release.  Downloads will not be provided here.
 
 
-## Build with:
 
-* [PyQt5](https://github.com/pyqt) - GUI Framework
+## Run with:
+
+* [PyQt5](https://github.com/pyqt) - GUI Framework for Python (nothing to build.)
 
 
 
 ## Authors
 * **Niklas Henning** - [Github profile](https://github.com/niklas-henning)
-
+* **RDTSC** - [Github profile](https://github.com/mj1911)
 
 
 
@@ -78,4 +84,4 @@ Style sheet used in the second screenshot: [QtDark](https://github.com/EClaesson
 
 ## License
 
-This project is licensed under the MIT License - see the [license.txt](https://github.com/niklas-henning/qss-editor/blob/master/license.txt) file for details
+This project is licensed under the MIT License - see the [license.txt](https://github.com/mj1911/qss-editor/license.txt) file for details.

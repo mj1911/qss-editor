@@ -21,8 +21,7 @@ class FindWindow(QtWidgets.QDialog):
         self.setGeometry(785, 440, 350, 130)
         self.setFixedSize(350, 130)
         self.setWindowTitle('Find and Replace')
-# three times this is attempted and none work in Qt5
-        self.setWindowIcon(QtGui.QIcon('images/icon_pencil.png'))
+        self.setWindowIcon(QtGui.QIcon('icon_pencil.png'))
         self.setStyleSheet(find_window_stylesheet)
 
         self.label_find = QtWidgets.QLabel('Find:', self)
@@ -85,39 +84,37 @@ class AboutWindow(QtWidgets.QDialog):
 
     def initUI(self):
         self.setGeometry(825, 410, 270, 225)
-        self.setWindowIcon(QtGui.QIcon('images/icon_pencil.png'))
-        self.setWindowTitle('About QSS-Editor for Flex GUI')
-        self.setMinimumSize(330, 225)
-        self.setFixedSize(330, 225)
+        self.setWindowIcon(QtGui.QIcon('icon_pencil.png'))
+        self.setWindowTitle('About QSS Editor++')
+        self.setMinimumSize(270, 225)
+        self.setFixedSize(270, 225)
         self.setModal(True)
         self.setStyleSheet(about_window_stylesheet)
 
         font1 = QtGui.QFont()
         font1.setPointSize(10)
 
-        label_header = QtWidgets.QLabel('<html><b>QSS Editor for Flex GUI</b</html>', self)
+        label_header = QtWidgets.QLabel('<html><b>QSS Editor++ 1.0.2</b</html>', self)
         label_header.setGeometry(30, 10, 200, 30)
         label_header.setFont(font1)
         label_header.show()
 
-        label_description = QtWidgets.QLabel(
-'''QSS Editor is a tool to edit and preview
-Qt stylesheets. It contains 30 of the most
-common Qt widgets in various states.''', self)
-        label_description.setGeometry(30, 44, 300, 50)
+        label_description = QtWidgets.QLabel('QSS Editor++  is a tool to edit and preview \nQt stylesheets. '
+                                             'It contains 30 of the most \ncommon '
+                                             'Qt widgets in various states.', self)
+        label_description.setGeometry(30, 45, 300, 40)
         label_description.show()
 
-        label_instruction = QtWidgets.QLabel(
-"""You can either open an existing stylesheet to
-edit and preview or write one from scratch.
-To apply changes to the preview widgets
-simply press 'Ctrl+ Enter' or click 'Apply',
-located in the 'View' section of the menu bar.""", self)
-        label_instruction.setGeometry(30, 99, 300, 75)
+        label_instruction = QtWidgets.QLabel('You can either open an existing stylesheet to\n'
+                                             'edit and preview or write one from scratch. \n'
+                                             "To apply changes to the preview widgets \n"
+                                             "simply press 'Ctrl+ Enter' or click 'Apply', \n"
+                                             "located in the 'View' section of the menu bar.", self)
+        label_instruction.setGeometry(30, 95, 300, 70)
         label_instruction.show()
 
-        label_copyright = QtWidgets.QLabel('(C) 2019 Niklas Henning, 2024 RDTSC/mj1911', self)
-        label_copyright.setGeometry(30, 173, 350, 30)
+        label_copyright = QtWidgets.QLabel('(C) 2019 Niklas Henning', self)
+        label_copyright.setGeometry(30, 173, 150, 20)
         label_copyright.show()
 
 
@@ -246,9 +243,7 @@ class NumberBar(QtWidgets.QWidget):
             painter.setFont(self.font)
 
             # Draw the line number right justified at the position of the line.
-            # QRect has changed in recent Qt
-            #paint_rect = QtCore.QRect(0, block_top, self.width(), self.editor.fontMetrics().height())
-            paint_rect = QtCore.QRectF(0, block_top, self.width(), self.editor.fontMetrics().height())
+            paint_rect = QtCore.QRect(0, block_top, self.width(), self.editor.fontMetrics().height())
             painter.drawText(paint_rect, Qt.AlignRight, str(blockNumber + 1))
 
             block = block.next()
@@ -275,7 +270,6 @@ class NumberBar(QtWidgets.QWidget):
 
         if rect.contains(self.editor.viewport().rect()):
             fontSize = self.editor.currentCharFormat().font().pointSize()
-            del fontSize    # this isn't used?
             self.font.setPointSize(10)
             self.font.setStyle(QtGui.QFont.StyleNormal)
             self.updateWidth()
@@ -307,11 +301,11 @@ class MainWindow(QtWidgets.QMainWindow):
         self.initUI()
 
     def initUI(self):
-        self.setWindowTitle('QSS Editor for Flex GUI')
+        self.setWindowTitle('QSS Editor++')
         self.setGeometry(0, 0, 1920, 1080)
         self.setMinimumSize(1920, 1080)
         self.showMaximized()
-        self.setWindowIcon(QtGui.QIcon('images/icon_pencil.png'))
+        self.setWindowIcon(QtGui.QIcon('icon_pencil.png'))
         self.setCursor(Qt.ArrowCursor)
         self.current_file = ''
 
@@ -380,7 +374,7 @@ class MainWindow(QtWidgets.QMainWindow):
         about_qt_action = QtWidgets.QAction('About Qt', self)
         about_qt_action.triggered.connect(self.about_qt)
 
-        about_qss_action = QtWidgets.QAction('About QSS Editor for Flex GUI', self)
+        about_qss_action = QtWidgets.QAction('About QSS Editor++', self)
         about_qss_action.triggered.connect(self.about_qss_editor)
 
         changelog_action = QtWidgets.QAction('View changelog', self)
@@ -924,8 +918,7 @@ class MainWindow(QtWidgets.QMainWindow):
         self.label6.setStyleSheet(stylesheet)
 
     def open_changelog(self):
-        webbrowser.open('https://github.com/mj1911/qss-editor/blob/master/changelog.txt')
-        pass
+        webbrowser.open('https://github.com/niklas-henning/qss-editor/blob/master/changelog.txt')
 
     def isModified(self):
         return self.text_edit.document().isModified()
@@ -1055,7 +1048,6 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def about_qt(self):
         messagebox = QtWidgets.QMessageBox.aboutQt(self)
-        del messagebox
 
     def about_qss_editor(self):
         self.about_win = AboutWindow()
@@ -1070,24 +1062,21 @@ class MainWindow(QtWidgets.QMainWindow):
         def handle_find():
             find_text = find_win.line_edit_find.text()
             replace_text = find_win.line_edit_replace.text()
-            del replace_text
 
             cursor = self.text_edit.textCursor()
-            del cursor
 
             flags = QtGui.QTextDocument.FindFlags()
 
-            #if cs == False and wwo == False:
-            if not cs and not wwo:
+            if cs == False and wwo == False:
                 flags = QtGui.QTextDocument.FindFlags()
 
-            elif cs and not wwo:
+            elif cs == True and wwo == False:
                 flags = QtGui.QTextDocument.FindFlags() | QtGui.QTextDocument.FindCaseSensitively
 
-            elif not cs and wwo:
+            elif cs == False and wwo == True:
                 flags = QtGui.QTextDocument.FindFlags() | QtGui.QTextDocument.FindWholeWords
 
-            elif cs and wwo:
+            elif cs == True and wwo == True:
                 flags = QtGui.QTextDocument.FindFlags() | QtGui.QTextDocument.FindCaseSensitively | QtGui.QTextDocument.FindWholeWords
 
             r = self.text_edit.find(find_text, flags)
@@ -1097,22 +1086,21 @@ class MainWindow(QtWidgets.QMainWindow):
             else:
                 flags2 = QtGui.QTextDocument.FindBackward
 
-                if not cs and not wwo:
+                if cs == False and wwo == False:
                     flags2 = QtGui.QTextDocument.FindBackward
 
-                elif cs and not wwo:
+                elif cs == True and wwo == False:
                     flags2 = QtGui.QTextDocument.FindBackward | QtGui.QTextDocument.FindCaseSensitively
 
-                elif not cs and wwo:
+                elif cs == False and wwo == True:
                     flags2 = QtGui.QTextDocument.FindBackward | QtGui.QTextDocument.FindWholeWords
 
-                elif cs and wwo:
+                elif cs == True and wwo == True:
                     flags2 = QtGui.QTextDocument.FindBackward | QtGui.QTextDocument.FindCaseSensitively | QtGui.QTextDocument.FindWholeWords
 
                 if self.text_edit.find(find_text, flags2) > 0:
                     self.text_edit.moveCursor(QtGui.QTextCursor.Start)
                     r2 = self.text_edit.find(find_text, flags)
-                    del r2
 
         def handle_replace():
             find_text = find_win.line_edit_find.text()
@@ -1123,16 +1111,16 @@ class MainWindow(QtWidgets.QMainWindow):
 
             flags = QtGui.QTextDocument.FindFlags()
 
-            if not cs and not wwo:
+            if cs == False and wwo == False:
                 flags = QtGui.QTextDocument.FindFlags()
 
-            elif cs and not wwo:
+            elif cs == True and wwo == False:
                 flags = QtGui.QTextDocument.FindFlags() | QtGui.QTextDocument.FindCaseSensitively
 
-            elif not cs and wwo:
+            elif cs == False and wwo == True:
                 flags = QtGui.QTextDocument.FindFlags() | QtGui.QTextDocument.FindWholeWords
 
-            elif cs and wwo:
+            elif cs == True and wwo == True:
                 flags = QtGui.QTextDocument.FindFlags() | QtGui.QTextDocument.FindCaseSensitively | QtGui.QTextDocument.FindWholeWords
 
             if cursor.hasSelection():
@@ -1145,16 +1133,16 @@ class MainWindow(QtWidgets.QMainWindow):
                 else:
                     flags2 = QtGui.QTextDocument.FindBackward
 
-                    if not cs and not wwo:
+                    if cs == False and wwo == False:
                         flags2 = QtGui.QTextDocument.FindBackward
 
-                    elif cs and not wwo:
+                    elif cs == True and wwo == False:
                         flags2 = QtGui.QTextDocument.FindBackward | QtGui.QTextDocument.FindCaseSensitively
 
-                    elif not cs and wwo:
+                    elif cs == False and wwo == True:
                         flags2 = QtGui.QTextDocument.FindBackward | QtGui.QTextDocument.FindWholeWords
 
-                    elif cs and wwo:
+                    elif cs == True and wwo == True:
                         flags2 = QtGui.QTextDocument.FindBackward | QtGui.QTextDocument.FindCaseSensitively | QtGui.QTextDocument.FindWholeWords
 
                     if self.text_edit.find(find_text, flags2) > 0:
@@ -1171,22 +1159,21 @@ class MainWindow(QtWidgets.QMainWindow):
                 else:
                     flags2 = QtGui.QTextDocument.FindBackward
 
-                    if not cs and not wwo:
+                    if cs == False and wwo == False:
                         flags2 = QtGui.QTextDocument.FindBackward
 
-                    elif cs and not wwo:
+                    elif cs == True and wwo == False:
                         flags2 = QtGui.QTextDocument.FindBackward | QtGui.QTextDocument.FindCaseSensitively
 
-                    elif not cs and wwo:
+                    elif cs == False and wwo == True:
                         flags2 = QtGui.QTextDocument.FindBackward | QtGui.QTextDocument.FindWholeWords
 
-                    elif cs and wwo:
+                    elif cs == True and wwo == True:
                         flags2 = QtGui.QTextDocument.FindBackward | QtGui.QTextDocument.FindCaseSensitively | QtGui.QTextDocument.FindWholeWords
 
                     if self.text_edit.find(find_text, flags2) > 0:
                         self.text_edit.moveCursor(QtGui.QTextCursor.Start)
                         r3 = self.text_edit.find(find_text, flags)
-                        del r3
                         temp_cursor2 = self.text_edit.textCursor()
                         temp_cursor2.insertText(replace_text)
                         self.text_edit.find(find_text, flags)
@@ -1238,9 +1225,8 @@ class MainWindow(QtWidgets.QMainWindow):
         self.showMaximized()
 
 
-if __name__ == '__main__':
-    app = QtWidgets.QApplication(sys.argv)
-    main_win = MainWindow()
-    app.setStyleSheet(style_sheet)
-    main_win.show()
-    sys.exit(app.exec_())
+app = QtWidgets.QApplication(sys.argv)
+main_win = MainWindow()
+app.setStyleSheet(style_sheet)
+main_win.show()
+sys.exit(app.exec_())

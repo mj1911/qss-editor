@@ -1,4 +1,12 @@
-8/15/2019
+2024/11/02
+    Forked Niklas's v1.0.2 code to see if it will work for Flex GUI
+    Fixed issue with QRect (Python QRect change from Qt4 to Qt5)
+    Fixed issue with icons not showing (Python path change)
+    Del'd some vars which were never used (will look into optimizing later)
+    Created try_ui_load to see how .ui file can be loaded into a frame
+    General tweaks and updates for Flex GUI
+
+2019/08/15
     Released v1.0.2
  
     Fixed syntax highlighting bug
@@ -6,18 +14,11 @@
     Fixed bug in function that checks if changes were made and whether they have been saved or not
     Changed icon size and color
 
-    Download: https://mega.nz/#!TKAQ0CBC!Uvo1_TH_zUAUAKSH5A4dlHwGQBCtg5RF15C3No4GUhA
-
-
-8/12/2019
+2019/08/12
     Released v1.0.1
  
     Added "View changelog" feature
     Removed some unnecessary code
- 
-    Download: https://mega.nz/#!DO5WDIDD!1kulxw3cWbWhQjSZ3bN_2BRGwc1KZDYDy7XiDJDq3go
-    
 
-7/31/2019
+2019/07/31
     First release v1.0.0
-    Download: https://mega.nz/#!yf40xYpJ!m7x1W7emxwh9YJqP0C1fDmj678kPfAYJRB2wb5rcOKo
