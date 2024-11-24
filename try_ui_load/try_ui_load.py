@@ -1,6 +1,10 @@
 import os
 from PyQt5 import QtWidgets, uic	# adapted to Qt5
 from functools import partial
+#from PySide2.QtUiTools import loadUiType	# next test
+#from PySide6.QtUiTools import loadUiType	# next test
+#from PySide6 import QtWidgets, QtUiTools
+from PySide6 import QtUiTools
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 # the main.ui has the buttons and stackedWidget
@@ -34,7 +38,21 @@ class MainWidget(Base, Form):
 		#Form, Base = uic.loadUiType(self.file_name)
 		#self.stackedWidget.addWidget(uic.loadUiType(self.file_name))
 		#self.stackedWidget.addWidget(self.file_name)
-		self.stackedWidget.setCurrentIndex(4)
+		#self.stackedWidget.setCurrentIndex(4)
+
+		# next test (apparently this won't work and isn't supported...)
+#		generated_class, base_class = loadUiType(self.file_name)
+#		# the values will be:
+#		#  (<class '__main__.Ui_ThemeWidgetForm'>, <class 'PySide2.QtWidgets.QWidget'>)
+#		widget = base_class()
+#		#form = generated_class()
+#		#form.setupUi(widget)
+#		# form.a_widget_member.a_method_of_member()
+#		widget.show()
+
+		# next test
+		self.window = QtUiTools.QUiLoader().load(self.file_name)
+		self.window.show()
 
 
 if __name__ == '__main__':
